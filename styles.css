@@ -32,18 +32,13 @@ header {
     height: 15%;
     display: flex;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    
 }
 
 .body {
     width: 100%;
-    height: 75%;
+    height: 70%;
     z-index: 1;
-}
-
-footer {
-    width: 100%;
-    height: 10.6%;
-    background-color: green;
 }
 
 /* Header */
@@ -70,12 +65,12 @@ footer {
 }
 
 span {
-    color: green;
+    color: #3A6332;
 }
 
 .menu-aberto-header {
     display: none;
-    background-color: green;
+    background-color: #3A6332;
     height: 89.46vh;
     width: 15%;
     color: white;
@@ -129,7 +124,7 @@ span {
     display: flex;
     height: 40%;
     border-radius: 15px;
-    background-color: green;
+    background-color: #3A6332;
 }
 
 .botao-header-cadastrar input {
@@ -137,7 +132,7 @@ span {
     display: flex;
     height: 100%;
     border-radius: 10px;
-    background-color: green;
+    background-color: #3A6332;
     color: white;
     font-family: "Lexend", sans-serif;
     font-size: 1em;
@@ -219,7 +214,7 @@ span {
 .frase-destaque-banner-conteudo {
     font-size: 3em;
     font-weight: 400;
-    color: green;
+    color: #3A6332; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -236,7 +231,7 @@ span {
 }
 
 .imagens-clicaveis-conteudo {
-    height: 70%;
+    height: 60%;
     width: 99.7%;
     display: flex;
     justify-content: center;
@@ -257,7 +252,7 @@ span {
     border: solid;
     height: 100%;
     width: 50%;
-    background-color: green;
+    background-color: #3A6332;
     border-radius: 15px;
     display: flex;
     justify-content: start;
@@ -281,7 +276,7 @@ span {
 .orcamento-clicavel-conteudo {
     height: 45%;
     width: 100%;
-    background-color: green;
+    background-color: #3A6332;
     border: solid white;
     border-radius: 15px;
 }
@@ -298,7 +293,7 @@ span {
 .area-restrita-clicavel-conteudo {
     height: 50%;
     width: 100%;
-    background-color: green;
+    background-color: #3A6332;
     border: solid white;
     border-radius: 15px;
 }
@@ -310,4 +305,69 @@ span {
     display: flex;
     margin-left: 5%;
     align-items: end;
+}
+
+footer {
+    width: 100%;
+    height: 15.6%;
+    background-color: #3A6332;
+    display: flex;
+}
+
+.logo-header-class-footer {
+    width: 55%;
+}
+
+.container-logo-class-footer {
+    width: 40%;
+    height: 95%;
+    display: flex;
+    margin-left: 25%;
+    justify-content: center;
+    align-items: center;
+}
+
+.p-footer {
+    font-size: medium;
+    color: white;
+}
+
+.span-footer {
+    color: rgb(112, 176, 104);
+    font-size: medium;
+}
+
+.menu-footer {
+    width: 60%;
+    color: white;
+    display: flex;
+}
+
+.links-menu-footer {
+    width: 60%;
+    color: white;
+}
+
+.redes-sociais-menu-footer {
+    width: 40%;
+    color: white;
+    display: flex;
+}
+
+.links-menu-footer ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 93%;
+    height: 60%;
+}
+
+.redes-sociais-menu-footer ul {
+    margin-top: 0;
+    width: 50%;
+    color: white;
+    display: flex;
+    height: 85%;
+    justify-content: space-around;
+    align-items: center;
 }
