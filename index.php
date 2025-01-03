@@ -51,7 +51,15 @@
                 <div class="frase-normal-banner-conteudo">Clique no item desejado e faça seu pedido agora mesmo</div>
             </div>
         </div>
-        <div class="imagens-clicaveis-conteudo"></div>
+        <div class="imagens-clicaveis-conteudo">
+            <div class="container-items-clicaveis-conteudo">
+                <div class="historico-clicavel-conteudo"> <a href="">Histórico</a></div>
+                <div class="historico-e-area-restrita-container-clicavel-conteudo">
+                    <div class="orcamento-clicavel-conteudo"><a href="">Orçamento</a></div>
+                    <div class="area-restrita-clicavel-conteudo"><a href="">Área Restrita</a></div>
+                </div>
+            </div>
+        </div>
     </div>
     <footer></footer>
 

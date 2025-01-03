@@ -204,25 +204,15 @@ span {
 }
 /* Conteudo */
 .banner-conteudo {
-
-    height: 50%;
+    height: 20%;
     width: 99.7%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.imagens-clicaveis-conteudo {
-
-    height: 50%;
-    width: 99.7%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 .container-banner-conteudo {
-
-    height: 60%;
+    height: 100%;
     width: 70%;
 }
 
@@ -230,7 +220,6 @@ span {
     font-size: 3em;
     font-weight: 400;
     color: green;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -241,8 +230,84 @@ span {
     font-size: 2.5em;
     font-weight: 400;
     color: black;
-
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.imagens-clicaveis-conteudo {
+    height: 70%;
+    width: 99.7%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-items-clicaveis-conteudo {
+    border:solid;
+    height: 80%;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.historico-clicavel-conteudo {
+    border: solid;
+    height: 100%;
+    width: 50%;
+    background-color: green;
+    border-radius: 15px;
+    display: flex;
+    justify-content: start;
+}
+
+.historico-clicavel-conteudo a {
+    border-radius: 15px;
+    width: 70%;
+    height: 90%;
+    display: flex;
+    margin-left: 5%;
+    align-items: end;
+}
+
+.historico-e-area-restrita-container-clicavel-conteudo {
+    border: solid;
+    height: 100%;
+    width: 60%;
+}
+
+.orcamento-clicavel-conteudo {
+    height: 45%;
+    width: 100%;
+    background-color: green;
+    border: solid white;
+    border-radius: 15px;
+}
+
+.orcamento-clicavel-conteudo a {
+    border-radius: 15px;
+    width: 70%;
+    height: 90%;
+    display: flex;
+    margin-left: 5%;
+    align-items: end;
+}
+
+.area-restrita-clicavel-conteudo {
+    height: 50%;
+    width: 100%;
+    background-color: green;
+    border: solid white;
+    border-radius: 15px;
+}
+
+.area-restrita-clicavel-conteudo a {
+    border-radius: 15px;
+    width: 70%;
+    height: 90%;
+    display: flex;
+    margin-left: 5%;
+    align-items: end;
 }
