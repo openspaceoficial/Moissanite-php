@@ -1,5 +1,16 @@
 <?php
 session_start(); // Inicia a sessão
+// Cria um item de teste
+$itemTeste = [
+    'imagem' => 'caminho_para_imagem_do_produto.jpg', // Atualize para o caminho real
+    'pedra' => 'diamante',
+    'formato' => 'redondo',
+    'tamanho' => 5,
+    'quantidade' => 2
+];
+
+// Adiciona o item de teste ao carrinho
+$_SESSION['carrinho'][] = $itemTeste;
 
 // Verifica se a variável de carrinho existe, senão cria um novo carrinho
 if (!isset($_SESSION['carrinho'])) {
