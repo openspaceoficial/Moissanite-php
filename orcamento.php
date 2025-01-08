@@ -1,4 +1,6 @@
 <?php
+
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Coletando dados enviados pelo formulário
     $pedra = $_POST['pedra'] ?? '';
@@ -18,6 +20,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'Quantidade' => $quantidade,
     ];
 }
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST'): ?>
+    <div class="resumo-orcamento">
+        <h2>Resumo do Orçamento</h2>
+        <ul>
+            <?php foreach ($resumo as $key => $value): ?>
+                <li><strong><?= $key ?>:</strong> <?= htmlspecialchars($value) ?></li>
+            <?php endforeach; ?>
+        </ul>
+        <button onclick="window.location.href='pagina-finalizacao.php';">Finalizar Compra</button>
+    </div>
+<?php endif;
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +40,974 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Orçamento de Pedras</title>
-    <link rel="stylesheet" href="orcamento.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+
+li {
+    text-decoration: none;
+    list-style: none;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.botao-responsivo-cadastrar {
+    display: none;
+}
+
+.botao-responsivo-cadastrar:hover {
+    display: none;
+}
+a:hover {
+    font-weight: bold;
+    font-size: large;
+    text-shadow:
+    0 2px 1px rgba(0, 0, 0, 0.1),
+    0 3px 2px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;  
+}
+
+body {
+    height: 99.4vh;
+    margin: 0;
+    width: 99.99%;
+    font-family: "Lexend", sans-serif;
+}
+
+header {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    
+}
+
+.body {
+    width: 100%;
+    height: 70%;
+    z-index: 1;
+    display: flex;
+}
+
+/* Header */
+.logo-header-class {
+    height: 100%;
+    width: 55%;
+}
+.botao-index-home-header {
+    color: black;
+}
+
+.container-logo-class {
+    width: 40%;
+    height: 95%;
+    margin-left: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-logo-class p {
+    font-size: 1.8em;
+    font-weight: bold;
+    text-shadow:
+        0 2px 1px rgba(0, 0, 0, 0.1),
+        0 3px 2px rgba(0, 0, 0, 0.1);
+}
+
+span {
+    color: #3A6332;
+}
+
+.menu-aberto-header {
+    display: none;
+    background-color: #3A6332;
+    height: 30vh;
+    width: 100%;
+    color: white;
+    z-index: 1000; /* Alta prioridade */
+}
+
+.menu-aberto-header.show {
+    display: block; /* Mostra o menu quando a classe 'show' é adicionada */
+    width: 25%;
+    height: 79.7vh;
+}
+
+.menu-aberto-header ul {
+    height: 60%;
+    width: 50%;
+    margin-left: 10%;
+    margin-top: 15vh;
+    padding-left: 0;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: flex-start;
+    align-items: flex-start;
+    list-style-position: inside;
+    gap: 10px;
+    z-index: 1000;
+}
+
+.menu-header-class {
+    height: 100%;
+    width: 45%;
+    display: flex;
+}
+
+.cadastro-header-class {
+    width: 60%;
+    display: flex;
+    height: 95%;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.menu-suspenso-header-class {
+    width: 40%;
+    display: flex;
+    height: 95%;
+}
+
+.botao-header-cadastrar {
+    width: 50%;
+    display: flex;
+    height: 40%;
+    border-radius: 15px;
+    background-color: #3A6332;
+}
+
+.botao-header-cadastrar input {
+    width: 100%;
+    display: flex;
+    height: 100%;
+    border-radius: 10px;
+    background-color: #3A6332;
+    color: white;
+    font-family: "Lexend", sans-serif;
+    font-size: 1em;
+    text-shadow:
+        0 2px 1px rgba(0, 0, 0, 0.1),
+        0 3px 2px rgba(0, 0, 0, 0.1);
+}
+
+.botao-header-cadastrar input:hover {
+    width: 100%;
+    display: flex;
+    height: 100%;
+    border-radius: 10px;
+    background-color: rgb(85, 204, 115);
+    font-weight: bold;
+    box-shadow:
+    0 2px 1px rgba(0, 0, 0, 0.1),
+    0 3px 2px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;  
+}
+
+/* Ícone do menu */
+.menu-wrapper {
+    position: relative;
+}
+
+.menu-icon {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+    margin-left: 15%;
+    margin-top: 5vh;
+}
+
+.menu-icon div {
+    width: 30px;
+    height: 4px;
+    background-color: #333;
+    transition: all 0.3s ease;
+}
+
+/* Animação para o menu de 3 linhas para o X */
+.menu-icon.open div:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+}
+
+.menu-icon.open div:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-icon.open div:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+}
+
+
+.body {
+    display: flex;
+    flex-direction: column;
+}
+/* Conteudo */
+.banner-conteudo {
+    height: 40%;
+    width: 99.7%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-banner-conteudo {
+    height: 100%;
+    width: 70%;
+}
+
+.frase-destaque-banner-conteudo {
+    font-size: 3em;
+    font-weight: 400;
+    color: #3A6332; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4vh;
+}
+
+.frase-normal-banner-conteudo {
+    font-size: 2.5em;
+    font-weight: 400;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.span-clique-no-item-banner-conteudo{
+    color: black;
+}
+
+.imagens-clicaveis-conteudo {
+    height: 60%;
+    width: 99.7%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-items-clicaveis-conteudo {
+    border:solid;
+    height: 80%;
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.historico-clicavel-conteudo {
+    border: solid;
+    height: 100%;
+    width: 50%;
+    background-color: #3A6332;
+    border-radius: 15px;
+    display: flex;
+    justify-content: start;
+}
+
+.historico-clicavel-conteudo a {
+    border-radius: 15px;
+    width: 70%;
+    height: 90%;
+    display: flex;
+    margin-left: 5%;
+    align-items: end;
+}
+
+.historico-e-area-restrita-container-clicavel-conteudo {
+    border: solid;
+    height: 100%;
+    width: 60%;
+}
+
+.orcamento-clicavel-conteudo {
+    height: 45%;
+    width: 100%;
+    background-color: #3A6332;
+    border: solid white;
+    border-radius: 15px;
+}
+
+.orcamento-clicavel-conteudo a {
+    border-radius: 15px;
+    width: 70%;
+    height: 90%;
+    display: flex;
+    margin-left: 5%;
+    align-items: end;
+}
+
+.area-restrita-clicavel-conteudo {
+    height: 50%;
+    width: 100%;
+    background-color: #3A6332;
+    border: solid white;
+    border-radius: 15px;
+}
+
+.area-restrita-clicavel-conteudo a {
+    border-radius: 15px;
+    width: 70%;
+    height: 90%;
+    display: flex;
+    margin-left: 5%;
+    align-items: end;
+}
+
+footer {
+    width: 100%;
+    height: 15.6%;
+    background-color: #3A6332;
+    display: flex;
+}
+
+.logo-header-class-footer {
+    width: 55%;
+}
+
+.container-logo-class-footer {
+    width: 40%;
+    height: 95%;
+    display: flex;
+    margin-left: 25%;
+    justify-content: center;
+    align-items: center;
+}
+
+.p-footer {
+    font-size: medium;
+    color: white;
+}
+
+.span-footer {
+    color: rgb(112, 176, 104);
+    font-size: medium;
+}
+
+.menu-footer {
+    width: 60%;
+    color: white;
+    display: flex;
+}
+
+.links-menu-footer {
+    width: 60%;
+    color: white;
+}
+
+.redes-sociais-menu-footer {
+    width: 40%;
+    color: white;
+    display: flex;
+}
+
+.links-menu-footer ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 93%;
+    height: 60%;
+}
+
+.redes-sociais-menu-footer ul {
+    margin-top: 0;
+    width: 30%;
+    color: white;
+    display: flex;
+    height: 85%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+@media (max-width: 425px) {
+li {
+    text-decoration: none;
+    list-style: none;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    font-weight: bold;
+    font-size: large;
+    text-shadow:
+    0 2px 1px rgba(0, 0, 0, 0.1),
+    0 3px 2px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;  
+}
+
+body {
+    height: 93vh;
+    margin: 0;
+    width: 100%;
+    font-family: "Lexend", sans-serif;
+}
+
+header {
+    width: 100%;
+}
+
+.body {
+    height: 80.5%;
+    width: 98.8%;
+}
+
+/* Header */
+.logo-header-class {
+    width: 40%;
+    margin-left: 3%;
+}
+
+.container-logo-class {
+    margin-left: 5%;
+}
+
+.container-logo-class p {
+    font-size: x-small;
+}
+
+span {
+    color: #3A6332;
+}
+
+
+.menu-aberto-header.show {
+        display: block; /* Mostra o menu quando a classe 'show' é adicionada */
+        width: 15%;
+        height: 35vh;
+}
+
+.menu-aberto-header ul {
+    font-size: x-small;
+}
+
+.menu-suspenso-header-class {
+    display: flex;
+    justify-content: end;
+}
+
+.botao-header-cadastrar {
+    border: solid;
+    height: 2vh;
+    display: none;
+}
+
+.botao-header-cadastrar input {
+    display: none;
+}
+
+.botao-responsivo-cadastrar {
+    color: green;
+    font-size: x-small;
+    box-shadow: 0 1px 0px rgba(223, 222, 222, 0.1);
+}
+
+.botao-responsivo-cadastrar:hover {
+    color: blue;
+    font-size: x-small;
+    box-shadow: 0 1px 0px rgba(0, 0, 0, 0.1);
+}
+
+.menu-icon {
+    height: 2.5vh;
+    display: flex;
+    margin-top: 5.2vh;
+}
+
+.menu-icon div {
+    height: 3px;
+}
+
+/* Conteudo */
+.banner-conteudo {
+    height: 26%;
+}
+
+
+.frase-destaque-banner-conteudo {
+    font-size: large;
+}
+
+.frase-normal-banner-conteudo {
+    font-size: large;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    align-self: center;
+    align-content: center;
+    justify-items: center;
+    justify-self: center;
+    align-self: center;
+    align-content: center;
+}
+
+.span-clique-no-item-banner-conteudo{
+    color: black;
+}
+
+.imagens-clicaveis-conteudo {
+    height: 60%;
+    width: 95.4%;
+    margin-top: 2vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 2%;
+}
+
+.container-items-clicaveis-conteudo {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    flex-wrap: wrap;
+}
+
+.historico-clicavel-conteudo {
+    height: 33%;
+    width: 100%;
+    background-color: #3A6332;
+    border-radius: 15px;
+    display: flex;
+    justify-content: start;
+    border: none;
+}
+
+.historico-clicavel-conteudo a {
+    border-radius: 15px;
+    width: 100%;
+    height: 90%;
+    display: flex;
+    margin-left: 5%;
+    align-items: end;
+}
+
+.historico-e-area-restrita-container-clicavel-conteudo {
+    border: none;
+    height: 66%;
+    width: 100%;
+}
+
+.orcamento-clicavel-conteudo {
+    height: 50%;
+    width: 100%;
+    background-color: #3A6332;
+    border: none;
+    border-radius: 15px;
+}
+
+.orcamento-clicavel-conteudo a {
+    border-radius: 15px;
+    width: 100%;
+    height: 90%;
+    display: flex;
+    margin-left: 5%;
+    align-items: end;
+}
+
+.area-restrita-clicavel-conteudo {
+    height: 50%;
+    width: 100%;
+    background-color: #3A6332;
+    border: none;
+    border-top: solid white;
+    border-radius: 15px;
+}
+
+.area-restrita-clicavel-conteudo a {
+    border-radius: 15px;
+    width: 100%;
+    height: 90%;
+    display: flex;
+    margin-left: 5%;
+    align-items: end;
+}
+
+footer {
+    height: 11.2vh;
+    width: 100%;
+}
+
+.links-menu-footer {
+    display: none;
+}
+  }
+
+  @media (min-width: 426px) and (max-width: 768px) {
+/* Header */
+
+.botao-header-cadastrar {
+    border: solid;
+    height: 2vh;
+    display: none;
+}
+
+.botao-header-cadastrar input {
+    display: none;
+}
+
+.botao-responsivo-cadastrar {
+    color: green;
+    font-size: x-small;
+    box-shadow: 0 1px 0px rgba(223, 222, 222, 0.1);
+}
+
+.botao-responsivo-cadastrar:hover {
+    color: rgb(141, 184, 76);
+    font-size: x-small;
+    box-shadow: 0 1px 0px rgba(0, 0, 0, 0.1);
+}
+
+footer {
+    width: 100%;
+    height: 15.6%;
+    background-color: #3A6332;
+    display: flex;
+}
+
+.logo-header-class-footer {
+    width: 55%;
+}
+
+.container-logo-class-footer {
+    width: 40%;
+    height: 95%;
+    display: flex;
+    margin-left: 25%;
+    justify-content: center;
+    align-items: center;
+}
+
+.p-footer {
+    font-size: medium;
+    color: white;
+}
+
+.span-footer {
+    color: rgb(112, 176, 104);
+    font-size: medium;
+}
+
+.menu-footer {
+    width: 60%;
+    color: white;
+    display: flex;
+}
+
+.links-menu-footer {
+    width: 60%;
+    color: white;
+}
+
+.redes-sociais-menu-footer {
+    width: 40%;
+    color: white;
+    display: flex;
+}
+
+.links-menu-footer ul {
+    display: none;
+    justify-content: space-between;
+    width: 93%;
+    height: 60%;
+}
+
+.redes-sociais-menu-footer ul {
+    margin-top: 0;
+    width: 30%;
+    color: white;
+    display: flex;
+    height: 85%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.menu-aberto-header ul {
+    height: 60%;
+    width: 50%;
+    margin-left: 10%;
+    margin-top: 15vh;
+    padding-left: 0;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: flex-start;
+    align-items: flex-start;
+    list-style-position: inside;
+    gap: 10px;
+    z-index: 1000;
+}
+
+}
+
+.container-forms-formulario-cadastro-orcamento {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    font-family: Arial, sans-serif;
+    margin-top: 30px;
+}
+
+.container-forms-formulario-cadastro-orcamento form {
+    width: 350px;
+    text-align: center;
+    background-color: #f7f7f7;
+    border: 2px solid #3A6332;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    display: block;
+    color: #333;
+}
+
+select,
+input[type="number"] {
+    width: 90%;
+    height: 40px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    background-color: #ffffff;
+    text-align: center;
+    color: #333;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+select:focus,
+input[type="number"]:focus {
+    border-color: #3A6332;
+    outline: none;
+    box-shadow: 0 0 5px rgba(58, 99, 50, 0.5);
+}
+
+button {
+    background-color: #3A6332;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    width: 100%;
+    margin-top: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #2d4e28;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+    background-color: #25401e;
+}
+
+#quilates,
+#cor {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+#quilates label,
+#cor label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    font-weight: normal;
+}
+
+#pedra {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+#pedra option {
+    font-size: 1rem;
+    background-color: #f8f9fa;
+    border: 1px solid #ccc;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#pedra option:hover {
+    background-color: #e9ecef;
+}
+
+/* Alinhamento geral */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #3A6332;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #555;
+}
+
+/* Container da prévia */
+.container-resumo-pedido {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 600px;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.resumo-pedido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.resumo-pedido h2 {
+    font-size: 1.4rem;
+    color: #3A6332;
+    margin-bottom: 15px;
+}
+
+.resumo-pedido p {
+    font-size: 1rem;
+    color: #333;
+    margin: 5px 0;
+}
+
+.resumo-pedido img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Layout do resumo do pedido */
+.resumo-pedido-item {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.resumo-pedido-item span {
+    font-weight: bold;
+}
+
+.botao-finalizar-pedido {
+    background-color: #3A6332;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1.1rem;
+    margin-top: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+.botao-finalizar-pedido:hover {
+    background-color: #2d4e28;
+    transform: translateY(-2px);
+}
+
+.botao-finalizar-pedido:active {
+    transform: translateY(0);
+    background-color: #25401e;
+}
+
+/* Estilos para dispositivos móveis */
+@media (max-width: 768px) {
+    .container-resumo-pedido {
+        padding: 15px;
+    }
+
+    .resumo-pedido h2 {
+        font-size: 1.2rem;
+    }
+
+    .resumo-pedido p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 425px) {
+    .resumo-pedido h2 {
+        font-size: 1rem;
+    }
+
+    .resumo-pedido p {
+        font-size: 0.8rem;
+    }
+
+    .botao-finalizar-pedido {
+        font-size: 1rem;
+    }
+}
+.botao-adicionar-carrinho {
+    background-color: #4CAF50; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    padding: 10px 20px; /* Padding do botão */
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.botao-adicionar-carrinho:hover {
+    background-color: #45a049; /* Cor ao passar o mouse */
+}
+
+</style>
     <script>
         function atualizarOpcoes() {
             const pedra = document.getElementById('pedra').value;
@@ -157,6 +1138,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <li><a href="area-restrita.php">Area Restrita</a></li>
             <li><a href="orcamento.php">Orçamento</a></li>
             <li><a href="estoque.php">Estoque</a></li>
+            <li><a href="logo.php">Estoque</a></li>
         </ul>
       </div>  
     </header>
@@ -203,46 +1185,39 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <button type="submit">Confirmar</button>
     </form>
         <!-- Forms Resultados Animado -->
-        <div class="formulario-orcamento-exibicao">
-                <div class="container-formulario-exibicao-orcamento">     
-                    <?php if ($_SERVER['REQUEST_METHOD'] === 'POST'): ?>
-                        <h2>Resumo do Orçamento:</h2>
-                        <p><strong>Tipo de Pedra:</strong> <?php echo ucfirst($pedra); ?></p>
-                        <p><strong>Formato:</strong> <?php echo ucfirst($formato); ?></p>
-                        <p><strong>Tamanho:</strong> <?php echo $milimetros; ?> mm</p>
-                        
-                        <?php if ($pedra == 'zircônia'): ?>
-                            <p><strong>Cor:</strong> <?php echo ucfirst($cor); ?></p>
-                            <p><strong>Quilates:</strong> <?php echo $quilates; ?> ct</p>
-                        <?php endif; ?>
-                        
-                        <p><strong>Quantidade:</strong> <?php echo $quantidade; ?> unidade(s)</p>
-                    <?php endif; ?>
-                    </div>
-                </div>
-            </div>
+<!-- Forms Resultados Animado -->
+<div class="container-resumo-pedido">
+    <div class="resumo-pedido">
+        <h2>Resumo do Pedido</h2>
+        <div class="resumo-pedido-item">
+            <span>Forma:</span><span>Redonda</span>
+        </div>
+        <div class="resumo-pedido-item">
+            <span>Tamanho:</span><span>6mm</span>
+        </div>
+        <div class="resumo-pedido-item">
+            <span>Quantidade:</span><span>2 unidades</span>
+        </div>
+        <div class="resumo-pedido-item">
+            <span>Pedra:</span><span>Moissanite</span>
+        </div>
+        <img src="caminho-da-imagem.jpg" alt="Imagem do Produto">
 
-</div>                                    
-                </div>
-            </div>
-            <div class="formulario-orcamento-exibicao">
-                <div class="container-formulario-exibicao-orcamento">     
-                    <?php if ($_SERVER['REQUEST_METHOD'] === 'POST'): ?>
-                        <h2>Resumo do Orçamento:</h2>
-                        <p><strong>Tipo de Pedra:</strong> <?php echo ucfirst($pedra); ?></p>
-                        <p><strong>Formato:</strong> <?php echo ucfirst($formato); ?></p>
-                        <p><strong>Tamanho:</strong> <?php echo $milimetros; ?> mm</p>
-                        
-                        <?php if ($pedra == 'zircônia'): ?>
-                            <p><strong>Cor:</strong> <?php echo ucfirst($cor); ?></p>
-                            <p><strong>Quilates:</strong> <?php echo $quilates; ?> ct</p>
-                        <?php endif; ?>
-                        
-                        <p><strong>Quantidade:</strong> <?php echo $quantidade; ?> unidade(s)</p>
-                    <?php endif; ?>
-                    </div>
-                </div>
-            </div>
+        <!-- Formulário para adicionar ao carrinho -->
+        <form action="carrinho.php" method="POST">
+            <input type="hidden" name="pedra" value="moissanite"> <!-- Valor fixo ou dinâmico -->
+            <input type="hidden" name="formato" value="redonda"> <!-- Valor fixo ou dinâmico -->
+            <input type="hidden" name="tamanho" value="6"> <!-- Valor fixo ou dinâmico -->
+            <input type="hidden" name="quantidade" value="2"> <!-- Valor fixo ou dinâmico -->
+            <!-- Adicionar mais campos de produto se necessário -->
+
+            <!-- Botão "Adicionar ao Carrinho" -->
+            <button type="submit" name="adicionar_carrinho" class="botao-adicionar-carrinho">Adicionar ao Carrinho</button>
+        </form>
+    </div>
+</div>
+
+                                          
     <footer>
         <div class="logo-header-class-footer">
             <div class="container-logo-class-footer">

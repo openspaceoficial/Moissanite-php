@@ -1,3 +1,10 @@
+<?php
+if (isset($_SESSION['usuario'])): ?>
+    <div class="botao-sair">
+        <a href="logout.php" class="btn-sair">Sair</a>
+    </div>
+<?php endif; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,6 +34,7 @@
                     <input type="submit" value="Cadastro/Login" onclick="" >
                 </div>
                 <a class="botao-responsivo-cadastrar">Cadastro/Login</a>
+                
             </div>
             <div class="menu-suspenso-header-class">
                 <div class="menu-wrapper">
@@ -39,12 +47,13 @@
                 </div>
             </div>
         </div>
+        
       <div class="menu-aberto-header">
         <ul>
             <li><a href="index.php">Home</a></li>
-            <li><a href="area-restrita.php">Area Restrita</a></li>
             <li><a href="orcamento.php">Orçamento</a></li>
             <li><a href="estoque.php">Estoque</a></li>
+            <li><a href="logout.php" class="btn-sair">Sair</a></li>
         </ul>
       </div>  
     </header>
@@ -61,7 +70,7 @@
                 <div class="historico-clicavel-conteudo"> <a href="historico.php">Histórico</a></div>
                 <div class="historico-e-area-restrita-container-clicavel-conteudo">
                     <div class="orcamento-clicavel-conteudo"><a href="orcamento.php">Orçamento</a></div>
-                    <div class="area-restrita-clicavel-conteudo"><a href="area-restrita.php">Área Restrita</a></div>
+
                 </div>
             </div>
         </div>

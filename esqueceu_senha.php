@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('./database/database.php'); // Certifique-se de que o arquivo de configuração do banco está correto
+include('config/database.php'); // Certifique-se de que o arquivo de configuração do banco está correto
 
 // Verificar se o formulário foi enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

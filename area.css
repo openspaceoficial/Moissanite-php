@@ -1,0 +1,531 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+
+body {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Lexend", sans-serif;
+    padding: 0;
+    overflow: hidden;
+}
+
+header>main {
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr;
+    align-items: center;
+    border-bottom: 1px solid rgb(129, 117, 117);
+    box-shadow: 1px 1px 10px black;
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+}
+
+h2 {
+    margin-right: 45%;
+    margin-left: 5%;
+}
+
+h2>span {
+    color: #3A6332;
+}
+
+
+main>button {
+    border-radius: 10px;
+    border: none;
+    height: 30px;
+    color: white;
+    background-color: #3A6332;
+    font-family: "Lexend", sans-serif;
+}
+
+main>img {
+    margin-left: 10%;
+}
+
+.textos {
+    display: flex;
+    align-items: center;
+    top: 25%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    flex-direction: column;
+}
+
+.textos>h1 {
+    font-size: 3rem;
+    color: #3A6332;
+}
+
+.botoes {
+    display: flex;
+    align-items: center;
+    top: 56%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.est {
+    height: 18rem;
+    width: 18rem;
+    margin-right: 1rem;
+    border-radius: 10px;
+    border: none;
+    background-color: #3A6332;
+    cursor: pointer;
+}
+
+.nomeE>p {
+    position: absolute;
+    bottom: 0.3rem;
+    left: 1rem;
+    cursor: pointer;
+}
+
+.nomeF>p {
+    position: absolute;
+    bottom: 0.3rem;
+    left: 34rem;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.alt {
+    width: 12.5rem;
+    height: 8.5rem;
+    margin-bottom: 9.5rem;
+    border-radius: 10px;
+    border: none;
+    background-color: #3A6332;
+    cursor: pointer;
+}
+
+.His {
+    width: 12.5rem;
+    height: 8.5rem;
+    margin-bottom: 9.5rem;
+    border-radius: 10px;
+    border: none;
+    background-color: #3A6332;
+    cursor: pointer;
+    margin-left: 1rem;
+}
+
+.nomeA>p {
+    position: absolute;
+    bottom: 9.7rem;
+    left: 20rem;
+    cursor: pointer;
+}
+
+.nomeH>p {
+    position: absolute;
+    bottom: 9.7rem;
+    left: 33.5rem;
+    cursor: pointer;
+
+}
+
+.financas {
+    position: absolute;
+    left: 32.5rem;
+    bottom: 0;
+    border: none;
+    border-radius: 10px;
+    background-color: #3A6332;
+    cursor: pointer;
+    width: 12.5rem;
+    height: 8.5rem;
+}
+
+.orcamento {
+    width: 12.5rem;
+    height: 8.5rem;
+    margin-top: 0.5rem;
+    position: absolute;
+    right: 0.1rem;
+    left: 19rem;
+    border: none;
+    border-radius: 10px;
+    background-color: #3A6332;
+    cursor: pointer;
+}
+
+.nomeO>p {
+    position: absolute;
+    top: 14.8rem;
+    right: 19.5rem;
+    text-decoration: none;
+}
+
+.nomeO>p,
+a {
+    text-decoration: none;
+    color: white;
+}
+
+footer {
+    background-color: #70B068;
+    height: 140px;
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr;
+    align-items: center;
+    padding-left: 300px;
+    color: #ffff;
+    position: absolute;
+    top: 86%;
+    width: 100%;
+}
+
+footer span {
+    color: #5e9154
+}
+
+footer nav ul {
+    list-style: none;
+}
+
+footer nav ul li {
+    margin-top: 5px;
+}
+
+footer nav ul li a {
+    text-decoration: none;
+    color: #ffff;
+}
+
+footer .redes i {
+    font-size: 1.5rem;
+    margin-right: 10px;
+}
+
+footer {
+    background-color: #3A6332;
+}
+
+dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    border-radius: 10px;
+    border: none;
+    height: 3rem;
+    color: white;
+    background-color: #3A6332;
+    font-family: "Lexend", sans-serif;
+    transition: 0.5s;
+    width: 8rem;
+}
+
+.dropbtn:hover {
+    background-color: #5e9154;
+
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    width: 200px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+    left: 65%;
+}
+
+.dropdown-content p {
+    color: black;
+    display: block;
+    margin-left: 10px;
+}
+
+.dropdown-content input {
+    outline: none;
+    background: none;
+    border: none;
+    border-bottom: 1px solid black;
+    margin-left: 5px;
+    margin-bottom: 10px;
+}
+
+.dropdown-content button {
+    margin-left: 30%;
+    border: none;
+    border-radius: 10px;
+    background-color: #5e9154;
+    height: 30px;
+    width: 80px;
+    color: white;
+    margin-bottom: 4px;
+    font-family: "Lexend", sans-serif;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+    border-radius: 5px;
+}
+
+
+.dropdown.show .dropdown-content {
+    display: block;
+}
+
+.menu-icon {
+    position: absolute;
+    top: 20px;
+    left: 85%;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.bar {
+    width: 30px;
+    height: 4px;
+    margin: 6px 0;
+    background-color: #333;
+    transition: 0.4s;
+}
+
+.sidebar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    right: -250px;
+    background-color: #3A6332;
+    color: white;
+    transition: 0.3s;
+    padding-top: 60px;
+    z-index: 1000;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 8px 16px;
+    text-align: left;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    transition: 0.3s;
+}
+
+/* Estilo para transição do ícone de barras */
+.menu-icon.open .bar:nth-child(1) {
+    transform: rotate(-45deg);
+    position: relative;
+    top: 8px;
+}
+
+.menu-icon.open .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-icon.open .bar:nth-child(3) {
+    transform: rotate(45deg);
+    position: relative;
+    top: -8px;
+}
+
+.sidebar ul li a:hover {
+    transform: scale(.5.1);
+    font-weight: 800;
+}
+
+@media (max-width: 880px) {
+
+    footer {
+        grid-template-columns: 1fr 1fr 1fr;
+        padding-left: 100px;
+        width: 88.5%;
+        top: 88%;
+        height: 142px;
+
+    }
+}
+
+
+
+@media (max-width: 450px) {
+
+    body {
+        overflow: hidden;
+    }
+
+    header {
+        width: 100%;
+        margin: 0;
+    }
+
+    header>main {
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+        margin: 0;
+    }
+
+    .dropdown {
+        display: none;
+    }
+
+    .menu-icon {
+        top: 47px;
+        left: 75%;
+    }
+
+    aside {
+        width: 100px;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .botoes {
+        display: flex;
+        align-items: center;
+        top: 30%;
+        left: 10%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        color: white;
+    }
+
+
+    .est {
+        height: 8rem;
+        width: 21rem;
+        margin-bottom: 10rem;
+        border-radius: 10px;
+        border: none;
+        background-color: #3A6332;
+        cursor: pointer;
+        position: absolute;
+        top: 0%;
+    }
+
+
+    .orcamento {
+        height: 8rem;
+        width: 10rem;
+        margin-top: 0.5rem;
+        position: absolute;
+        right: 0.1rem;
+        left: 0rem;
+        border: none;
+        border-radius: 10px;
+        background-color: #3A6332;
+        cursor: pointer;
+        top: 17rem;
+    }
+
+    .alt {
+        position: absolute;
+        left: 0;
+        top: 8.5rem;
+        height: 8rem;
+        width: 10rem;
+    }
+
+    .His {
+        height: 8rem;
+        width: 10rem;
+        margin-bottom: 10rem;
+        border-radius: 10px;
+        border: none;
+        background-color: #3A6332;
+        cursor: pointer;
+        position: absolute;
+        top: 8.5rem;
+        left: 10rem;
+    }
+
+    .financas {
+        position: absolute;
+        left: 11rem;
+        bottom: 0;
+        border: none;
+        border-radius: 10px;
+        background-color: #3A6332;
+        cursor: pointer;
+        height: 8rem;
+        width: 10rem;
+        top: 17.5rem;
+    }
+
+    .nomeA>p {
+        left: 1rem;
+        top: 13.5rem;
+    }
+
+    .nomeE>p {
+        top: 5rem;
+        left: 1;
+    }
+
+    .nomeH>p {
+        top: 13.5rem;
+        left: 11.9rem;
+    }
+
+    .nomeF>p {
+        position: absolute;
+        bottom: 0.3rem;
+        left: 12rem;
+        cursor: pointer;
+        z-index: 9999;
+        top: 22rem;
+    }
+
+    .nomeO>p {
+        top: 22rem;
+        left: 1rem;
+    }
+
+    .textos>h1 {
+        font-size: 2rem;
+        color: #3A6332;
+    }
+
+    .textos>p {
+        font-size: 0.9rem;
+        width: 140%;
+    }
+
+    .textos>p>span {
+        margin-left: 100px;
+    }
+
+    footer {
+        width: 100%;
+        padding-left: 0;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    footer nav {
+        display: none;
+    }
+
+    .nome-footer {
+        margin-left: 2rem;
+    }
+
+    #insta {
+        font-size: 1.5rem;
+        margin-left: 100px;
+    }
+}

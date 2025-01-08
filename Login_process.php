@@ -4,7 +4,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 session_start();
-include('./database/database.php'); // Inclua corretamente o arquivo de configuração do banco
+include('config/database.php'); // Inclua corretamente o arquivo de configuração do banco
 
 // Verifica se o formulário foi enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // Redirecionar para o painel do cliente ou administrador
             if ($user['tipo_usuario'] == 'cliente') {
-                header("Location: index.php");
+                header("Location: client_dashboard.php");
                 exit();
             } elseif ($user['tipo_usuario'] == 'admin') {
                 header("Location: admin_dashboard.php");
@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Verifica se o botão "Entrar como Visitante" foi clicado
         if (isset($_POST['visitor'])) {
             $_SESSION['user_type'] = 'guest'; // Define o tipo de usuário como visitante
-            header("Location: index.php"); // Redireciona para o painel do cliente
+            header("Location: client_dashboard.php"); // Redireciona para o painel do cliente
             exit();
         } else {
             echo "Usuário ou senha incorretos!";

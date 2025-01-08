@@ -10,12 +10,6 @@ $admin_senha = "admin123";
 $admin_email2 = "admin@bruna.com";
 $admin_senha2 = "123";
 
-$admin_email2 = "admin@gustavo.com";
-$admin_senha2 = "123";
-
-$admin_email2 = "admin@lili.com";
-$admin_senha2 = "123";
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Verifica se é um cadastro
