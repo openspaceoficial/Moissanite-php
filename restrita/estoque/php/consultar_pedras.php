@@ -2,7 +2,7 @@
 $host = 'localhost';
 $usuario = 'root';
 $senha = '';
-$banco = 'moissanite';
+$banco = 'pedrasDB';
 
 // Conexão com o banco de dados
 $conn = new mysqli($host, $usuario, $senha, $banco);

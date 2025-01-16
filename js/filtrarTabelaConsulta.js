@@ -11,7 +11,7 @@ function filtrarTabelaConsulta() {
     // Construção segura da URL com encodeURIComponent
     const queryString = `pedra=${encodeURIComponent(pedra)}&formato=${encodeURIComponent(formato)}&mm=${encodeURIComponent(mm)}`;
 
-    fetch(`consultar_pedras.php?${queryString}`)
+    fetch(`../estoque/php/consultar_pedras.php?${queryString}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error(`Erro ao carregar dados: ${response.statusText}`);

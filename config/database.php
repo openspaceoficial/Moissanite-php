@@ -1,6 +1,6 @@
 <?php
 $host = 'localhost';    // Endereço do servidor
-$dbname = 'moissanite';   // Nome do banco de dados
+$dbname = 'pedrasdb';   // Nome do banco de dados
 $user = 'root';         // Usuário do banco de dados
 $password = '';         // Senha do banco de dados (deixe vazio se não houver senha)
 

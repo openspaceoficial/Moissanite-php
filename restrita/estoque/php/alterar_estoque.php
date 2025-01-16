@@ -2,7 +2,7 @@
 $host = 'localhost';
 $usuario = 'root';
 $senha = '';
-$banco = 'moissanite';
+$banco = 'pedrasDB';
 $porta = 3306;
 
 // Conexão com o banco de dados

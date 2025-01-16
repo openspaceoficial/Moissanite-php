@@ -1,5 +1,5 @@
 <?php
-$conn = new mysqli('localhost', 'root', '', 'moissanite', 3306);
+$conn = new mysqli('localhost', 'root', '', 'pedrasDB', 3306);
 
 if ($conn->connect_error) {
     die("Erro na conexão com o banco de dados: " . $conn->connect_error);

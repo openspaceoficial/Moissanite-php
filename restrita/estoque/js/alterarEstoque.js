@@ -15,7 +15,7 @@ function alterarEstoque() {
     const bodyData = `pedra=${encodeURIComponent(pedra)}&formato=${encodeURIComponent(formato)}&mm=${encodeURIComponent(mm)}&estoqueUnidade=${encodeURIComponent(estoqueUnidade)}&estoqueQuilate=${encodeURIComponent(estoqueQuilate)}`;
 
     // Enviar a requisição
-    fetch("alterar_estoque.php", {
+    fetch("../estoque/php/alterar_estoque.php", {
         method: "POST",
         headers: {
             "Content-Type": "application/x-www-form-urlencoded",

@@ -2,48 +2,68 @@
 $host = 'localhost';
 $usuario = 'root';
 $senha = '';
-$banco = 'moissanite';
+$banco = 'pedrasDB';
+$porta = 3306;
 
 // Conexão com o banco de dados
-$conn = new mysqli($host, $usuario, $senha, $banco);
+$conn = new mysqli($host, $usuario, $senha, $banco, $porta);
 if ($conn->connect_error) {
     die("Conexão falhou: " . $conn->connect_error);
 }
 
-// Validação e sanitização de entrada
-$pedra = $_GET['pedra'] ?? '';
+// Receber os filtros
 $formato = $_GET['formato'] ?? '';
 $mm = $_GET['mm'] ?? '';
 
-if (!in_array($pedra, ['moissanite', 'zirconia'])) {
-    die("Erro: Tipo de pedra inválido.");
-}
+// Construção da consulta com filtros
+$sqlMoissanite = "SELECT 'moissanite' AS Pedra, Formato, CT, MM, Qpl, Ideal, Estoque_Unidade, Estoque_Quilate, Fator, Preco_Venda 
+                  FROM moissanite WHERE 1=1";
+$sqlZirconia = "SELECT 'zirconia' AS Pedra, Formato, CT, MM, Qpl, Ideal, Estoque_Unidade, Estoque_Quilate, Fator, Preco_Venda 
+                FROM zirconia WHERE 1=1";
 
-// Construção segura da consulta
-$sql = "SELECT ? AS Pedra, Formato, CT, MM, Qpl, Ideal, Estoque_Unidade, Estoque_Quilate, Preco_Venda FROM $pedra WHERE 1=1";
+$params = [];
+$types = '';
 
-$params = [$pedra];
-$types = 's'; // Tipo para bind_param: 's' para string
-
+// Aplicar filtros à tabela moissanite
 if (!empty($formato)) {
-    $sql .= " AND Formato = ?";
+    $sqlMoissanite .= " AND Formato = ?";
     $params[] = $formato;
     $types .= 's';
 }
 if (!empty($mm)) {
-    $sql .= " AND MM = ?";
+    $sqlMoissanite .= " AND MM = ?";
     $params[] = $mm;
     $types .= 's';
 }
 
-// Preparar e executar a consulta
+// Aplicar filtros à tabela zirconia
+if (!empty($formato)) {
+    $sqlZirconia .= " AND Formato = ?";
+    $params[] = $formato;
+    $types .= 's';
+}
+if (!empty($mm)) {
+    $sqlZirconia .= " AND MM = ?";
+    $params[] = $mm;
+    $types .= 's';
+}
+
+// União das consultas
+$sql = "$sqlMoissanite UNION $sqlZirconia";
+
+// Preparar a consulta
 $stmt = $conn->prepare($sql);
 if (!$stmt) {
     die("Erro ao preparar a consulta: " . $conn->error);
 }
-$stmt->bind_param($types, ...$params);
+
+// Vincular parâmetros, se existirem
+if (!empty($params)) {
+    $stmt->bind_param($types, ...$params);
+}
+
 $stmt->execute();
-$result = $stmt->get_result();
+$resultado = $stmt->get_result();
 
 // Gera a tabela HTML
 echo "<table>
@@ -56,10 +76,11 @@ echo "<table>
             <th>Ideal</th>
             <th>Estoque_Unidade</th>
             <th>Estoque_Quilate</th>
+            <th>Fator</th>
             <th>Preço de Venda</th>
         </tr>";
 
-while ($row = $result->fetch_assoc()) {
+while ($row = $resultado->fetch_assoc()) {
     echo "<tr>
             <td>" . htmlspecialchars($row['Pedra']) . "</td>
             <td>" . htmlspecialchars($row['Formato']) . "</td>
@@ -69,6 +90,7 @@ while ($row = $result->fetch_assoc()) {
             <td>" . htmlspecialchars($row['Ideal']) . "</td>
             <td>" . htmlspecialchars($row['Estoque_Unidade']) . "</td>
             <td>" . htmlspecialchars($row['Estoque_Quilate']) . "</td>
+            <td>" . htmlspecialchars($row['Fator']) . "</td>
             <td>" . htmlspecialchars($row['Preco_Venda']) . "</td>
           </tr>";
 }
