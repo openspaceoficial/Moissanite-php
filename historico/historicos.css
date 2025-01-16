@@ -1,0 +1,488 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+
+/* Estilo Geral */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    background: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+  
+    font-size: 1rem;
+}
+
+header>main {
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr;
+    align-items: center;
+    border-bottom: 1px solid rgb(129, 117, 117);
+    box-shadow: 1px 1px 10px black;
+    padding: 20px;
+    position: sticky;
+    width: 100%;
+    z-index: 999;
+    background-color: white;
+}
+
+h2 {
+    margin-right: 45%;
+    margin-left: 5%;
+}
+
+h2>span {
+    color: #3A6332;
+}
+
+#Joia {
+    background-color: #70B068;
+    width: 115px;
+    padding: 15px;
+    display: flex;
+    border-radius: 45px;
+    margin-bottom: 20px;
+}
+
+.dropbtn {
+    border-radius: 10px;
+    border: none;
+    height: 3rem;
+    color: white;
+    background-color: #3A6332;
+    font-family: "Lexend", sans-serif;
+    transition: 0.5s;
+    width: 8rem;
+    margin-right: 100px;
+}
+
+.dropbtn:hover {
+    background-color: #5e9154;
+
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    width: 200px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+    left: 65%;
+}
+
+.dropdown-content p {
+    color: black;
+    display: block;
+    margin-left: 10px;
+}
+
+.dropdown-content input {
+    outline: none;
+    background: none;
+    border: none;
+    border-bottom: 1px solid black;
+    margin-left: 5px;
+    margin-bottom: 10px;
+}
+
+.dropdown-content button {
+    margin-left: 30%;
+    border: none;
+    border-radius: 10px;
+    background-color: #5e9154;
+    height: 30px;
+    width: 80px;
+    color: white;
+    margin-bottom: 4px;
+    font-family: "Lexend", sans-serif;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+    border-radius: 5px;
+}
+
+
+.dropdown.show .dropdown-content {
+    display: block;
+}
+
+/* menu lateral */
+.menu-icon {
+    position: absolute;
+    top: 20px;
+    left: 85%;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.bar {
+    width: 30px;
+    height: 4px;
+    margin: 6px 0;
+    background-color: #333;
+    transition: 0.4s;
+}
+
+.menu-aberto-header {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    right: -250px;
+    background-color: #3A6332;
+    color: white;
+    transition: 0.3s;
+    padding-top: 60px;
+    z-index: 1000;
+}
+
+.menu-aberto-header ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu-aberto-header ul li {
+    padding: 8px 16px;
+    text-align: left;
+}
+
+.menu-aberto-header ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    transition: 0.3s;
+}
+
+.menu-aberto-header ul li a:hover {
+    transform: scale(.5.1);
+    font-weight: 800;
+}
+
+.menu-aberto-header.show {
+    right: 0;
+}
+
+
+/* Estilo para transição do ícone de barras */
+.menu-icon.open .bar:nth-child(1) {
+    transform: rotate(-45deg);
+    position: relative;
+    top: 8px;
+}
+
+.menu-icon.open .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-icon.open .bar:nth-child(3) {
+    transform: rotate(45deg);
+    position: relative;
+    top: -8px;
+}
+
+
+/* Título e Descrição */
+main h1 {
+    text-align: center;
+    font-size: 1.9rem;
+    color: #4caf50;
+    margin-bottom: 15px;
+    margin-top: 20px;
+}
+
+main p {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+/* Cards */
+.card-1, .card-2 {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    margin: 15px auto;
+    padding: 50px;
+    width:95%;
+    max-width: 900px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 5px solid #4caf50;
+}
+
+.card-2 {
+    border-left-color: #388e3c;
+}
+
+.card-1:hover, .card-2:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Nome da Pedra */
+.name {
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.name-rock {
+    font-size: 1.7rem;
+    font-weight: bold;
+    color: #4caf50;
+    text-transform: uppercase;
+}
+
+/* Tabelas */
+.table {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.table-divs {
+    display: flex;
+    justify-content: space-between;
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.95rem;
+}
+
+.table-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.table-row:nth-child(odd) {
+    background-color: #f5f5f5;
+}
+
+.table-row:hover {
+    background-color: #e8f5e9;
+    transform: scale(1.02);
+}
+
+/* Nenhum dado encontrado */
+.table-row:only-child {
+    text-align: center;
+    font-style: italic;
+    color: #777;
+}
+/* Footer */
+footer {
+    background-color: #70B068;
+    height: 140px;
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr;
+    align-items: center;
+    padding-left: 300px;
+    color: #ffff;
+    position: absolute;
+    top: 86%;
+    width: 100%;
+}
+
+footer span {
+    color: #5e9154
+}
+
+footer nav ul {
+    list-style: none;
+}
+
+footer nav ul li {
+    margin-top: 5px;
+}
+
+footer nav ul li a {
+    text-decoration: none;
+    color: #ffff;
+}
+
+footer .redes i {
+    font-size: 1.5rem;
+    margin-right: 10px;
+}
+
+footer {
+    background-color: #3A6332;
+}
+
+
+
+
+@media (max-width: 880px) {
+    
+    header {
+        grid-template-columns: 2fr 1fr
+    }
+    .dropdown {
+        display: none;
+    }
+    #inicio p {
+        font-size: 1rem;
+        text-align: center;
+        word-spacing: 0.1rem; /* Aumenta o espaço entre palavras */
+    }
+
+    .card-1,
+    .card-2,
+    .card-3 {
+        width: 90%;
+        max-width: 600px;
+        margin: 15px auto;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        word-spacing: 0.15rem; /* Espaço entre palavras nos cartões */
+    }
+
+    .table-divs {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1rem;
+        margin-bottom: 15px;
+        word-spacing: 0.1rem; /* Espaço entre palavras nas tabelas */
+    }
+
+    .table-row {
+        padding: 12px;
+        font-size: 0.9rem;
+        word-spacing: 0.1rem; /* Espaço entre palavras nas linhas da tabela */
+    }
+    footer {
+        grid-template-columns: 1fr 1fr 1fr;
+        padding-left: 100px;
+        margin-top: 10%;
+    }
+    footer nav {
+        display: none;
+    }
+}
+
+@media (max-width: 450px) {
+    #inicio p {
+        font-size: 0.9rem;
+        text-align: center;
+        word-spacing: 0.1rem;
+    }
+
+    .card-1,
+    .card-2,
+    .card-3 {
+        width: 95%;
+        max-width: 500px;
+        margin: 10px auto;
+        padding: 15px;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        word-spacing: 0.15rem;
+    }
+
+    .table-divs {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.9rem;
+        word-spacing: 0.1rem;
+    }
+
+    .table-row {
+        padding: 10px;
+        font-size: 0.85rem;
+        word-spacing: 0.1rem;
+    }
+    footer {
+        padding-left: 50px;
+    }
+
+    footer .redes {
+        grid-column: 3;
+    }
+
+    footer nav {
+        display: none;
+    }
+}
+
+@media (max-width: 376px) {
+    #inicio p {
+        font-size: 0.8rem;
+        text-align: center;
+        word-spacing: 0.1rem;
+    }
+
+    .card-1,
+    .card-2,
+    .card-3 {
+        width: 95%;
+        max-width: 450px;
+        margin: 10px auto;
+        padding: 10px;
+        border-radius: 6px;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+        word-spacing: 0.15rem;
+    }
+
+    .table-divs {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.8rem;
+        word-spacing: 0.1rem;
+    }
+
+    .table-row {
+        padding: 8px;
+        font-size: 0.8rem;
+        word-spacing: 0.1rem;
+    }
+}
+
+@media (max-width: 321px) {
+    #inicio p {
+        font-size: 0.75rem;
+        word-spacing: 0.1rem;
+    }
+
+    .card-1,
+    .card-2,
+    .card-3 {
+        width: 100%;
+        max-width: 400px;
+        margin: 10px auto;
+        padding: 10px;
+        border-radius: 6px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        word-spacing: 0.15rem;
+    }
+
+    .table-divs {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.6rem;
+        word-spacing: 0.1rem;
+    }
+
+    .table-row {
+        padding: 6px;
+        font-size: 0.75rem;
+        word-spacing: 0.1rem;
+    }
+    #insta {
+        font-size: 1.5rem;
+        margin-left: -30px;
+    }
+}
