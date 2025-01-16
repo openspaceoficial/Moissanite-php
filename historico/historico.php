@@ -22,10 +22,11 @@ $zirconiaData = [];
 // Filtragem dos dados por tipo de pedra (ignora case)
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
-        if (strcasecmp($row['TipoPedra'], 'moissanite') === 0) {
-            $moissaniteData[] = $row;
-        } elseif (strcasecmp($row['TipoPedra'], 'zirconia') === 0) {
+        if  (strcasecmp($row['TipoPedra'], 'Zircônia') === 0) {
             $zirconiaData[] = $row;
+
+        } elseif (strcasecmp($row['TipoPedra'], 'moissanite') === 0) {
+            $moissaniteData[] = $row;
         }
     }
 } else {

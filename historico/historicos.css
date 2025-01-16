@@ -290,8 +290,7 @@ footer {
     align-items: center;
     padding-left: 300px;
     color: #ffff;
-    position: absolute;
-    top: 86%;
+    top: 100%;
     width: 100%;
 }
 
