@@ -443,6 +443,9 @@ span {
     color: #3A6332;
 }
 
+.menu-aberto-header {
+}
+
 .menu-aberto-header.show {
         display: block; /* Mostra o menu quando a classe 'show' é adicionada */
         width: 15%;

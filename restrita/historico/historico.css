@@ -1,0 +1,638 @@
+* {
+    box-sizing: border-box;
+    font-family: "Lexend", sans-serif;
+    list-style: none;
+    text-decoration: none
+}
+
+body {
+    margin: 0;
+}
+
+::-webkit-scrollbar {
+    width: 8px
+}
+
+::-webkit-scrollbar-track {
+    background-color: #F1F1F1
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #3A6332;
+    border-radius: 8px
+}
+
+/* Header */
+header>main {
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr;
+    align-items: center;
+    border-bottom: 1px solid rgb(129, 117, 117);
+    box-shadow: 1px 1px 10px black;
+    padding: 20px;
+    position: sticky;
+    width: 100%;
+    z-index: 999;
+    background-color: white;
+}
+
+h2 {
+    margin-right: 45%;
+    margin-left: 5%;
+}
+
+h2>span {
+    color: #3A6332;
+}
+
+#Joia {
+    background-color: #70B068;
+    width: 115px;
+    padding: 15px;
+    display: flex;
+    border-radius: 45px;
+    margin-bottom: 20px;
+}
+
+.dropbtn {
+    border-radius: 10px;
+    border: none;
+    height: 3rem;
+    color: white;
+    background-color: #3A6332;
+    font-family: "Lexend", sans-serif;
+    transition: 0.5s;
+    width: 8rem;
+    margin-right: 100px;
+}
+
+.dropbtn:hover {
+    background-color: #5e9154;
+
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    width: 200px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+    left: 65%;
+}
+
+.dropdown-content p {
+    color: black;
+    display: block;
+    margin-left: 10px;
+}
+
+.dropdown-content input {
+    outline: none;
+    background: none;
+    border: none;
+    border-bottom: 1px solid black;
+    margin-left: 5px;
+    margin-bottom: 10px;
+}
+
+.dropdown-content button {
+    margin-left: 30%;
+    border: none;
+    border-radius: 10px;
+    background-color: #5e9154;
+    height: 30px;
+    width: 80px;
+    color: white;
+    margin-bottom: 4px;
+    font-family: "Lexend", sans-serif;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+    border-radius: 5px;
+}
+
+
+.dropdown.show .dropdown-content {
+    display: block;
+}
+
+/* menu lateral */
+.menu-icon {
+    position: absolute;
+    top: 20px;
+    left: 85%;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.bar {
+    width: 30px;
+    height: 4px;
+    margin: 6px 0;
+    background-color: #333;
+    transition: 0.4s;
+}
+
+.menu-aberto-header {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    right: -250px;
+    background-color: #3A6332;
+    color: white;
+    transition: 0.3s;
+    padding-top: 60px;
+    z-index: 1000;
+}
+
+.menu-aberto-header ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu-aberto-header ul li {
+    padding: 8px 16px;
+    text-align: left;
+}
+
+.menu-aberto-header ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    transition: 0.3s;
+}
+
+.menu-aberto-header ul li a:hover {
+    transform: scale(.5.1);
+    font-weight: 800;
+}
+
+.menu-aberto-header.show {
+    right: 0;
+}
+
+
+/* Estilo para transição do ícone de barras */
+.menu-icon.open .bar:nth-child(1) {
+    transform: rotate(-45deg);
+    position: relative;
+    top: 8px;
+}
+
+.menu-icon.open .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-icon.open .bar:nth-child(3) {
+    transform: rotate(45deg);
+    position: relative;
+    top: -8px;
+}
+
+/* Main */
+
+main>button {
+    border-radius: 10px;
+    border: none;
+    height: 30px;
+    color: white;
+    background-color: #3A6332;
+    font-family: "Lexend", sans-serif;
+}
+
+main>img {
+    margin-left: 10%;
+}
+
+/* Main */
+#main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+}
+
+#inicio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    font-size: 3rem;
+    color: #3A6332;
+    display: flex;
+    justify-self: center;
+    margin-bottom: 20px;
+}
+
+#inicio P {
+    font-size: 1.5rem;
+    margin-bottom: 50px;
+}
+
+
+.card-1,
+.card-2,
+.card-3 {
+    width: 60%;
+    min-height: 30vh;
+    border-radius: 30px;
+    padding: 15px 30px;
+    background-color: #3A6332;
+    margin-bottom: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.name {
+    display: flex;
+    width: 100%;
+}
+
+#pesquisa {
+    display: flex;
+    margin-bottom: 40px;
+}
+
+#pesquisa input {
+    outline: none;
+    border: none;
+    background: none;
+    border-bottom: 1px solid black;
+    font-family: "Lexend", sans-serif;
+}
+
+/* Card-1 */
+.name-rock {
+    /*Aqui*/
+    width: 15%;
+    border-radius: 45px;
+    padding: 15px;
+    background-color: #70B068;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.table {
+    margin-top: 2vh;
+    width: 100%;
+}
+
+.table-divs {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    justify-content: center;
+    justify-items: center;
+    font-weight: 700;
+    font-size: 1.5rem;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.product-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    justify-content: center;
+    justify-items: center;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    border-left: 3px solid white;
+}
+
+#productsContainerZirconia {
+    width: 100%;
+}
+
+.element {
+    width: 25%;
+    margin-left: 7%;
+}
+
+.product-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-left: 2%;
+    width: 100%;
+}
+
+.btnAdicionar {
+    color: black;
+    background-color: #3A6332;
+    width: 190px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    border-radius: 45px;
+    padding: 0 10px 0 10px;
+    font-weight: bold;
+}
+
+/* Fim card-1 */
+.btnAdd {
+    border-radius: 45px;
+    border: none;
+    background-color: white;
+    padding: 12px;
+    font-size: 1rem;
+}
+
+.linhas {
+    display: flex;
+    border-bottom: 1px solid white;
+    justify-content: space-around;
+    width: 90%;
+}
+
+
+
+.linha button {
+    background-color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 25px;
+    display: flex;
+    justify-self: center;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+/* Footer */
+footer {
+    background-color: #3A6332;
+    height: 150px;
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr;
+    align-items: center;
+    padding-left: 300px;
+    color: #ffff;
+}
+
+footer span {
+    color: #70B068
+}
+
+footer nav ul {
+    list-style: none;
+}
+
+footer nav ul li {
+    margin-top: 5px;
+}
+
+footer nav ul li a {
+    text-decoration: none;
+    color: #ffff;
+}
+
+footer .redes i {
+    font-size: 1.5rem;
+    margin-right: 10px;
+}
+
+
+@media (max-width: 880px) {
+
+    #inicio P {
+        font-size: 1rem;
+    }
+
+
+    .card-1,
+    .card-2,
+    .card-3 {
+        width: 100%;
+        min-height: 20vh;
+    }
+
+
+    footer {
+        grid-template-columns: 1fr 1fr 1fr;
+        padding-left: 100px;
+        margin-top: 11%;
+        height: 142px;
+    }
+}
+
+
+
+
+
+@media (max-width: 450px) {
+    header {
+        width: 70.7%;
+        margin: 0;
+    }
+
+    header>main {
+        grid-template-columns: 1fr 1fr;
+        width: 141.5%;
+        margin: 0;
+    }
+
+    .dropdown {
+        display: none;
+    }
+
+    .menu-icon {
+        top: 47px;
+        left: 75%;
+    }
+
+    aside {
+        width: 100px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    #inicio P {
+        font-size: 0.6rem;
+    }
+
+    .name-rock {
+        width: 30%;
+    }
+
+    .table-divs {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        justify-content: center;
+        justify-items: center;
+        font-weight: 700;
+        font-size: 1rem;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .table-divs>div {
+        padding: 7px;
+    }
+
+    .card-1,
+    .card-2,
+    .card-3 {
+        width: 106%;
+        min-height: 20vh;
+    }
+
+    .btnAdd {
+        border-radius: 45px;
+        border: none;
+        background-color: white;
+        padding: 12px;
+        font-size: 0.7rem;
+    }
+
+    footer {
+        width: 100%;
+        padding-left: 0;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        justify-content: center;
+        overflow: hidden;
+        margin-top: 10%;
+    }
+
+    footer nav {
+        display: none;
+    }
+
+    .nome-footer {
+        margin-left: 2rem;
+    }
+
+    #insta {
+        font-size: 1.5rem;
+        margin-left: 100px;
+    }
+
+}
+
+
+@media (max-width: 376px) {
+    body {
+        width: 70%;
+       
+    }
+
+    header {
+        width: 101%;
+        margin: 0;
+    }
+
+    h1 {
+        font-size: 2rem;
+        text-align: center;
+        margin-left: 100px;
+    }
+
+    #inicio P {
+        font-size: 0.6rem;
+        margin-left: 100px;
+    }
+
+
+    .card-1,
+    .card-2,
+    .card-3 {
+        width: 155%;
+        min-height: 20vh;
+        margin-left: 110px;
+    }
+
+
+
+
+    .table-divs {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        justify-content: center;
+        justify-items: center;
+        font-weight: 500;
+        font-size: 0.8rem;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+
+    footer {
+        width: 142%;
+        padding-left: 0;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        justify-content: center;
+        overflow: hidden;
+        margin-top: 10%;
+    }
+}
+
+@media (max-width: 321px) {
+
+    body {
+        width: 70%;
+        height: 100% ;
+    }
+
+    header {
+        width: 143%;
+        margin: 0;
+    }
+
+
+    h1 {
+        font-size: 2rem;
+        text-align: center;
+        margin-top: 100px;
+    }
+
+
+
+    .table-divs {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        justify-content: center;
+        justify-items: center;
+        font-weight: 400;
+        font-size: 0.7rem;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    #main {
+        padding: 7px;
+        width: 111%;
+        margin-left: 45px;
+    }
+
+    footer {
+        width: 201%;
+        padding-left: 0;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        justify-content: center;
+        overflow: hidden;
+        margin-top: 227px
+    }
+
+    #insta {
+        font-size: 1.5rem;
+        margin-left: 70px;
+    }
+}

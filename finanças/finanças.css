@@ -1,0 +1,908 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: "Lexend", sans-serif;
+    list-style: none;
+    text-decoration: none
+}
+
+body {
+    margin: 0;
+
+}
+
+::-webkit-scrollbar {
+    width: 8px
+}
+
+::-webkit-scrollbar-track {
+    background-color: #F1F1F1
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #3A6332;
+    border-radius: 8px
+}
+
+/* Header */
+header>main {
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr;
+    align-items: center;
+    border-bottom: 1px solid rgb(129, 117, 117);
+    box-shadow: 1px 1px 10px black;
+    padding: 20px;
+    position: sticky;
+    width: 100%;
+    z-index: 999;
+    background-color: white;
+}
+
+h2 {
+    margin-right: 45%;
+    margin-left: 5%;
+}
+
+h2>span {
+    color: #3A6332;
+}
+
+#Joia {
+    background-color: #70B068;
+    width: 115px;
+    padding: 15px;
+    display: flex;
+    border-radius: 45px;
+    margin-bottom: 20px;
+}
+
+.dropbtn {
+    border-radius: 10px;
+    border: none;
+    height: 3rem;
+    color: white;
+    background-color: #3A6332;
+    font-family: "Lexend", sans-serif;
+    transition: 0.5s;
+    width: 8rem;
+    margin-right: 100px;
+}
+
+.dropbtn:hover {
+    background-color: #5e9154;
+
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    width: 200px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+    left: 65%;
+}
+
+.dropdown-content p {
+    color: black;
+    display: block;
+    margin-left: 10px;
+}
+
+.dropdown-content input {
+    outline: none;
+    background: none;
+    border: none;
+    border-bottom: 1px solid black;
+    margin-left: 5px;
+    margin-bottom: 10px;
+}
+
+.dropdown-content button {
+    margin-left: 30%;
+    border: none;
+    border-radius: 10px;
+    background-color: #5e9154;
+    height: 30px;
+    width: 80px;
+    color: white;
+    margin-bottom: 4px;
+    font-family: "Lexend", sans-serif;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+    border-radius: 5px;
+}
+
+
+.dropdown.show .dropdown-content {
+    display: block;
+}
+
+/* menu lateral */
+.menu-icon {
+    position: absolute;
+    top: 20px;
+    left: 85%;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.bar {
+    width: 30px;
+    height: 4px;
+    margin: 6px 0;
+    background-color: #333;
+    transition: 0.4s;
+}
+
+.menu-aberto-header {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    right: -250px;
+    background-color: #3A6332;
+    color: white;
+    transition: 0.3s;
+    padding-top: 60px;
+    z-index: 1000;
+}
+
+.menu-aberto-header ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu-aberto-header ul li {
+    padding: 8px 16px;
+    text-align: left;
+}
+
+.menu-aberto-header ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    transition: 0.3s;
+}
+
+.menu-aberto-header ul li a:hover {
+    transform: scale(.5.1);
+    font-weight: 800;
+}
+
+.menu-aberto-header.show {
+    right: 0;
+}
+
+
+/* Estilo para transição do ícone de barras */
+.menu-icon.open .bar:nth-child(1) {
+    transform: rotate(-45deg);
+    position: relative;
+    top: 8px;
+}
+
+.menu-icon.open .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-icon.open .bar:nth-child(3) {
+    transform: rotate(45deg);
+    position: relative;
+    top: -8px;
+}
+
+/* Estilo geral da tabela */
+
+.card {
+    opacity: 0;
+    display: none;
+}
+
+
+#tabela {
+    margin: 20px auto;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #444;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    color: #333;
+    background-color: #fff;
+}
+
+th,
+td {
+    padding: 8px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #e8f4fd;
+}
+
+button {
+    padding: 4px 8px;
+    font-size: 12px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button[name="editar"] {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+button[name="excluir"] {
+    background-color: #f44336;
+    color: #fff;
+}
+
+button[name="marcarPago"] {
+    background-color: #2196F3;
+    color: #fff;
+}
+
+/* Responsividade: Tabela vira cards */
+@media (max-width: 768px) {
+    table {
+        display: none;
+        /* Oculta a tabela em dispositivos pequenos */
+    }
+
+    #tabela {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* Centraliza os cards */
+        gap: 10px;
+    }
+
+    .card {
+        display: flex;
+        flex-direction: column;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        font-size: 14px;
+        width: 90%;
+        max-width: 400px;
+        margin: 0 auto;
+        transition: transform 0.2s, box-shadow 0.2s;
+        display: block;
+        opacity: 1;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-header {
+        font-weight: bold;
+        font-size: 16px;
+        margin-bottom: 10px;
+        color: #333;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 5px;
+    }
+
+    .card-section {
+        margin-bottom: 10px;
+        line-height: 1.6;
+    }
+
+    .card-section strong {
+        color: #555;
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    .card-section div {
+        margin-left: 10px;
+    }
+
+    .card .acoes {
+        display: flex;
+        gap: 10px;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+
+    .card .acoes button {
+        flex: 1;
+        font-size: 12px;
+        padding: 6px 10px;
+        border-radius: 5px;
+        transition: background-color 0.2s, transform 0.2s;
+    }
+
+    .card .acoes button:hover {
+        transform: scale(1.05);
+    }
+
+    button[name="editar"] {
+        background-color: #4CAF50;
+    }
+
+    button[name="editar"]:hover {
+        background-color: #45A049;
+    }
+
+    button[name="excluir"] {
+        background-color: #f44336;
+    }
+
+    button[name="excluir"]:hover {
+        background-color: #e53935;
+    }
+
+    button[name="marcarPago"] {
+        background-color: #2196F3;
+    }
+
+    button[name="marcarPago"]:hover {
+        background-color: #1E88E5;
+    }
+}
+
+
+
+/*Formularios */
+.form-container {
+    display: flex;
+    justify-content: space-between;
+    /* Distribui os formulários com espaço entre eles */
+    align-items: flex-start;
+    gap: 20px;
+    /* Espaço entre os formulários */
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    /* Permite quebra em telas menores */
+}
+
+
+.editarForm1,
+.editarForm2 {
+    flex: 1 1 45%;
+    background: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+
+.editarForm1:hover,
+.editarForm2:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Títulos dos formulários */
+.editarForm1 h2,
+.editarForm2 h2 {
+    font-size: 18px;
+    color: #444;
+    margin-bottom: 15px;
+    margin-left: 140px;
+    width: 50%;
+}
+
+/* Estilo para os campos de input e select */
+.editarForm1 input,
+.editarForm2 input,
+.editarForm2 select,
+.editarForm1 button,
+.editarForm2 button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Botões */
+.editarForm1 button,
+.editarForm2 button {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.editarForm1 button:hover,
+.editarForm2 button:hover {
+    background-color: #45A049;
+    transform: scale(1.05);
+}
+
+/* Contêiner básico para alinhar os radio buttons */
+.radio-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    flex-wrap: wrap;
+    /* Permite quebra em dispositivos menores */
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* Ocultar o input original */
+.radio-container input[type="radio"] {
+    display: none;
+}
+
+/* Estilo das labels que substituem os radio buttons */
+.radio-container label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 15px;
+    background-color: #fafafa;
+    color: #444;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Efeito ao passar o mouse */
+.radio-container label:hover {
+    background-color: #f0f0f0;
+    color: #333;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo do botão selecionado */
+.radio-container input[type="radio"]:checked+label {
+    background-color: #4CAF50;
+    color: #fff;
+    border-color: #3e8e41;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+
+/* parte calculo de materias */
+div[style="display: flex; justify-content: space-between;"] {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    margin-top: 0;
+}
+
+/* Estilo do formulário */
+.form-container2 {
+    background-color: #4caf50;
+    padding: 15px;
+    border-radius: 10px;
+    width: 450px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    color: #fff;
+    height: auto;
+}
+
+.form-container2 h3 {
+    margin-top: 0;
+    font-size: 18px;
+    text-align: center;
+    border-bottom: 2px solid #fff;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+}
+
+.form-container2 label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.form-container2 input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.form-container2 button {
+    width: 100%;
+    padding: 10px;
+    background-color: #2e7d32;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.form-container2 button:hover {
+    background-color: #33691e;
+    transform: scale(1.02);
+}
+
+/* Estilo dos resultados */
+.results {
+    background-color: #558b2f;
+    padding: 15px;
+    border-radius: 10px;
+    width: 450px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    color: #fff;
+    text-align: center;
+    height: auto;
+}
+
+.results p {
+    font-size: 14px;
+    margin: 8px 0;
+    line-height: 1.4;
+}
+
+.results .highlight {
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #33691e;
+    padding: 8px;
+    border-radius: 6px;
+    display: inline-block;
+    margin-top: 8px;
+    box-shadow: inset 0px 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .form-container {
+        flex-direction: column;
+        /* Empilha os formulários verticalmente */
+    }
+
+    .editarForm1,
+    .editarForm2 {
+        flex: 1 1 100%;
+        /* Ocupam 100% da largura em telas menores */
+    }
+
+    .radio-container {
+        gap: 10px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .radio-container label {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.botoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    /* Espaçamento entre os botões */
+    margin: 20px 0;
+}
+
+/* Estilo básico dos botões */
+.botoes button {
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+/* Efeito ao passar o mouse */
+.botoes button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+/* Botão específico para "Ocultar Tabela" */
+.botoes .ocultar {
+    background-color: #f44336;
+}
+
+.botoes .ocultar:hover {
+    background-color: #e53935;
+}
+
+/* Responsividade: ajustar em telas pequenas */
+@media (max-width: 600px) {
+    .botoes {
+        flex-direction: column;
+        /* Empilha os botões */
+    }
+
+    .botoes button {
+        width: 100%;
+        /* Ocupa toda a largura */
+        max-width: 300px;
+    }
+}
+
+
+/* Footer */
+footer {
+    background-color: #3A6332;
+    height: 150px;
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr;
+    align-items: center;
+    padding-left: 300px;
+    color: #ffff;
+    margin-top: 160px;
+}
+
+footer span {
+    color: #70B068
+}
+
+footer nav ul {
+    list-style: none;
+}
+
+footer nav ul li {
+    margin-top: 5px;
+}
+
+footer nav ul li a {
+    text-decoration: none;
+    color: #ffff;
+}
+
+footer .redes i {
+    font-size: 1.5rem;
+    margin-right: 10px;
+}
+
+/*responsivo telas telefone*/
+
+@media (max-width: 426px) {
+    header {
+        width: 70.7%;
+        margin: 0;
+    }
+
+    header>main {
+        grid-template-columns: 1fr 1fr;
+        width: 141.5%;
+        margin: 0;
+    }
+
+    .dropdown {
+        display: none;
+    }
+
+    .menu-icon {
+        top: 47px;
+        left: 75%;
+    }
+
+    aside {
+        width: 100px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    #inicio P {
+        font-size: 0.6rem;
+    }
+
+    .name-rock {
+        width: 30%;
+    }
+
+    .form-container,
+    .card {
+        width: 90%;
+        padding: 10px;
+    }
+
+    form {
+        gap: 10px;
+    }
+
+    .editarForm1 h2,
+    .editarForm2 h2 {
+        font-size: 18px;
+        color: #444;
+        margin-bottom: 15px;
+        margin-left: 85px;
+
+    }
+
+    input,
+    select,
+    button {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .botoes {
+        flex-direction: column;
+    }
+
+    .botoes button {
+        width: 100%;
+        max-width: 200px;
+    }
+
+
+    .form-container2 {
+        padding: 15px;
+        border-radius: 6px;
+        box-shadow: none;
+        width: 90%;
+        margin-left: 20px;
+        /* Ajusta a largura para caber melhor em telas pequenas */
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+
+    label {
+        font-size: 12px;
+    }
+
+    input[type="number"] {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+
+    footer {
+        width: 100%;
+        padding-left: 0;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        justify-content: center;
+        overflow: hidden;
+        margin-top: 10%;
+    }
+
+    footer nav {
+        display: none;
+    }
+
+    .nome-footer {
+        margin-left: 2rem;
+    }
+
+    #insta {
+        font-size: 1.5rem;
+        margin-left: 100px;
+    }
+
+}
+
+@media (max-width: 376px) {
+
+    .form-container,
+    .card {
+        width: 95%;
+        padding: 8px;
+    }
+
+    input,
+    select,
+    button {
+        font-size: 12px;
+    }
+
+    .botoes button {
+        max-width: 180px;
+    }
+}
+
+@media (max-width: 321px) {
+
+    .form-container,
+    .card {
+        width: 98%;
+        padding: 5px;
+    }
+
+    input,
+    select,
+    button {
+        font-size: 10px;
+        padding: 6px;
+    }
+
+    .editarForm1 h2,
+    .editarForm2 h2 {
+        font-size: 18px;
+        color: #444;
+        margin-bottom: 15px;
+        margin-left: 60px;
+        width: 53%;
+    }
+
+    .botoes button {
+        max-width: 160px;
+    }
+
+    .form-container2 {
+        padding: 10px;
+        border-radius: 6px;
+        box-shadow: none;
+        margin: 0;
+    }
+
+    h3 {
+        font-size: 14px;
+    }
+
+    label {
+        font-size: 10px;
+    }
+
+    input[type="number"] {
+        padding: 6px;
+        font-size: 10px;
+    }
+}
+
+

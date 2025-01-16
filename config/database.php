@@ -1,15 +1,16 @@
 <?php
-// Configurações do banco de dados (se necessário)
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "moissainite";
+$host = 'localhost';    // Endereço do servidor
+$dbname = 'moissanite';   // Nome do banco de dados
+$user = 'root';         // Usuário do banco de dados
+$password = '';         // Senha do banco de dados (deixe vazio se não houver senha)
 
-// Conectar ao banco de dados
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Verificar conexão
-if ($conn->connect_error) {
-    die("Falha na conexão: " . $conn->connect_error);
+try {
+    $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    echo "Erro ao conectar ao banco: " . $e->getMessage();
+    exit;
 }
 ?>
+
+

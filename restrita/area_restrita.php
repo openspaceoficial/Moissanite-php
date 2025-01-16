@@ -1,4 +1,5 @@
 <?php
+
 if (isset($_SESSION['usuario'])): ?>
     <div class="botao-sair">
         <a href="logout.php" class="btn-sair">Sair</a>
@@ -36,9 +37,9 @@ if (isset($_SESSION['usuario'])): ?>
 
             <div class="menu-aberto-header">
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="area.html">Área Restrita</a></li>
-                    <li><a href="/Fazer/fazerOrcamento.html">Orçamento</a></li>
+                    <li><a href="./gerenciar/gerenciar_pedidos.php">Status Pedido</a></li>
+                    <li><a href="area_restrita.php">Área Restrita</a></li>
+                    <li><a href="./orcamento/orcamento.php">Orçamento</a></li>
                     <li><a href="../historico/historico.php">Histórico</a></li>
                     <li><a href="../login.php" class="btn-sair">Sair</a></li>
                 </ul>
@@ -66,12 +67,13 @@ if (isset($_SESSION['usuario'])): ?>
         </div>
         <div class="nomeO">
             <button class="orcamento"></button>
-            <p><a href="/Fazer/fazerOrcamento.html">Orçamento</a></p>
+            <p><a href="../orcamento.php">Orçamento</a></p>
         </div>
         <div class="nomeF">
             <button class="financas"></button>
-            <p><a href="/controle/controle.html">Finanças</a></p>
+            <p><a href="finanças/Finanças.php">Finanças</a></p>
         </div>
+        
     </section>
     
     <footer>
@@ -128,10 +130,6 @@ window.onclick = function (event) {
 
 
 </script>
-
-
-
 </body>
-
 <script src="https://kit.fontawesome.com/5553e94d09.js" crossorigin="anonymous"></script>
 </html>

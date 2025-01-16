@@ -1,0 +1,300 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+
+
+.body{ 
+    height: 100%;
+}
+
+
+label {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    display: block;
+    color: #333;
+}
+
+select,
+input[type="number"] {
+    width: 90%;
+    height: 35px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    background-color: #ffffff;
+    text-align: center;
+    color: #333;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+select:focus,
+input[type="number"]:focus {
+    border-color: #3A6332;
+    outline: none;
+    box-shadow: 0 0 5px rgba(58, 99, 50, 0.5);
+}
+
+button {
+    background-color: #3A6332;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    width: 100%;
+    margin-top: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #2d4e28;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+    background-color: #25401e;
+}
+
+#quilates,
+#cor {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+#quilates label,
+#cor label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    font-weight: normal;
+}
+
+#pedra {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+#pedra option {
+    font-size: 1rem;
+    background-color: #f8f9fa;
+    border: 1px solid #ccc;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#pedra option:hover {
+    background-color: #e9ecef;
+}
+
+/* Alinhamento geral */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #3A6332;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #555;
+}
+
+.container-formulario-exibicao-orcamento {
+    width: 350px;
+    text-align: center;
+    background-color: #f7f7f7;
+    border: 2px solid #3A6332;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 470px
+}
+
+.container-formulario-exibicao-orcamento {
+    position: relative;
+    transition: transform 0.4s ease; /* Animação suave para deslocar */
+}
+
+/* Classe para deslocar o formulário de cadastro */
+.deslocar-esquerda {
+    transform: translateX(-20%); /* Move o formulário 20% para a esquerda */
+}
+
+.container-formulario-exibicao-orcamento img {
+    width: 220px;
+    height: 220px;
+}
+
+.container-forms-formulario-cadastro-orcamento form {
+    width: 350px;
+    text-align: center;
+    background-color: #f7f7f7;
+    border: 2px solid #3A6332;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 470px
+}
+
+.container-formulario-cadastro-orcamento {
+    width: 100%;
+    height: 100%;
+}
+
+.container-formularios {
+    width: 100%;
+    height: 83.5%;
+    display: flex;
+}
+
+@media (min-width: 320px) AND (max-width: 374px) {
+    .body {
+        height: 100%;
+        overflow-y: auto;   /* Permite rolar verticalmente quando o conteúdo for maior que a altura da div */
+        padding-bottom: 20px; /* Um pequeno espaço para evitar que o conteúdo fique muito colado na parte inferior */
+    }
+    
+    .container-formulario-exibicao-orcamento {
+        width: 245px;
+        text-align: center;
+        background-color: #f7f7f7;
+        border: 2px solid #3A6332;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        height: 470px;
+        margin-left: 5%;
+    }
+    
+    .container-forms-formulario-cadastro-orcamento {
+        width: 95%;
+    }
+
+    .container-forms-formulario-cadastro-orcamento form {
+        width: 80%;
+        margin-left: 5%;
+    }
+    
+    .container-formularios {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .a-forms {
+        width: 100%;
+        height: 45px;
+        font-size: smaller;
+    }
+
+}
+
+@media (min-width: 375px) AND (max-width: 424px) {
+    .body {
+        height: 100%;
+        overflow-y: auto;   /* Permite rolar verticalmente quando o conteúdo for maior que a altura da div */
+        padding-bottom: 20px; /* Um pequeno espaço para evitar que o conteúdo fique muito colado na parte inferior */
+    }
+    
+    .container-formulario-exibicao-orcamento {
+        width: 288px;
+        text-align: center;
+        background-color: #f7f7f7;
+        border: 2px solid #3A6332;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        height: 420px;
+        margin-left: 5%;
+        margin-top: 6vh;
+    }
+    
+    .container-forms-formulario-cadastro-orcamento {
+        width: 85%;
+        margin-left: 7%;
+        height: 50vh;
+    }
+
+    .container-forms-formulario-cadastro-orcamento form {
+        height: 100%;
+        width: 85%;
+    }
+    .container-formularios {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .a-forms {
+        width: 100%;
+        height: 45px;
+        font-size: smaller;
+    }
+
+}
+
+@media (min-width: 425px) AND (max-width: 450px) { 
+    .body {
+        height: 100%;
+        overflow-y: auto;   /* Permite rolar verticalmente quando o conteúdo for maior que a altura da div */
+        padding-bottom: 20px; /* Um pequeno espaço para evitar que o conteúdo fique muito colado na parte inferior */
+    }
+    
+    .container-formulario-exibicao-orcamento {
+        width: 308px;
+        text-align: center;
+        background-color: #f7f7f7;
+        border: 2px solid #3A6332;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        height: 420px;
+        margin-left: 8%;
+        margin-top: 6vh;
+    }
+    
+    .container-forms-formulario-cadastro-orcamento {
+        width: 85%;
+        margin-left: 7%;
+        height: 50vh;
+    }
+
+    .container-forms-formulario-cadastro-orcamento form {
+        height: 100%;
+        width: 85%;
+    }
+    .container-formularios {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .a-forms {
+        width: 100%;
+        height: 45px;
+        font-size: smaller;
+    }
+
+}

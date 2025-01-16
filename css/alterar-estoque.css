@@ -1,0 +1,32 @@
+h1, h2 {
+    color: #4CAF50;
+}
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    margin: auto;
+}
+label {
+    display: block;
+    margin-top: 10px;
+}
+select, input, button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+}
+button:hover {
+    background-color: #45a049;
+}

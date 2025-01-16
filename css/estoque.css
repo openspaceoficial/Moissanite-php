@@ -1,0 +1,15 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 20px;
+    color: #333;
+}
+
+.consulta-pedras-p {
+    margin-left: 42%;
+}
+
+.p-alterar-pedra {
+    margin-left: 44%;
+    margin-top: 3vh;
+}

@@ -1,0 +1,11 @@
+{
+    "require": {
+      "guzzlehttp/guzzle": "^7.9",
+      "mpdf/qrcode": "^1.2",
+      "symfony/deprecation-contracts": "^3.5",
+      "rsantiago/boletophp": "dev-master",
+        "mercadopago/dx-php": "^3.0"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+  }
